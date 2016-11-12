@@ -11,7 +11,7 @@ import java.util.Date;
 
 @Controller
 @RequestMapping(value = {"/welcome", "/"}, method = RequestMethod.GET)
-public class WelcomeController {
+public class  WelcomeController {
 
     HomeMadeServiceInterface homeMadeServiceInterface;
 
