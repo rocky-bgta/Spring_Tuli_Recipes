@@ -3,6 +3,10 @@ package com.salahin.spring.recipes.service.recipeimplementation;
 
 import com.salahin.spring.recipes.domain.Member;
 import com.salahin.spring.recipes.service.recipeinterface.MemberServiceInterface;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.util.HashMap;
@@ -11,9 +15,14 @@ import java.util.Map;
 /**
  * Created by marten on 16-06-14.
  */
+@Component
+@PropertySource({"classpath:/application.properties","classpath:/message.properties"})
 public class MemberServiceImple implements MemberServiceInterface {
 
     private final Map<Integer, Member> members = new HashMap<>();
+
+    @Autowired
+    Environment environment;
 
     @PostConstruct
     public void init() {
@@ -40,6 +49,8 @@ public class MemberServiceImple implements MemberServiceInterface {
 
     @Override
     public java.util.Collection<Member> findAll() {
+        // example of how read property file through environment variable
+        String property = environment.getProperty("hello");
         return members.values();
     }
 
