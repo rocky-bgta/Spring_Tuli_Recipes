@@ -4,6 +4,8 @@ package com.salahin.spring.recipes.web.config;
 import com.salahin.spring.recipes.service.recipeimplementation.MemberServiceImple;
 import com.salahin.spring.recipes.service.recipeinterface.MemberServiceInterface;
 import com.salahin.spring.recipes.web.Interceptor;
+import com.salahin.spring.recipes.web.view.AtomFeedView;
+import com.salahin.spring.recipes.web.view.RSSFeedView;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -62,6 +64,16 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
         return new BeanNameViewResolver();
     }
     //====================END XML Restful Service===============================
+
+    @Bean
+    public AtomFeedView atomFeedViewTemplate(){
+        return new AtomFeedView();
+    }
+
+    @Bean
+    public RSSFeedView rssFeedViewTemplate(){
+        return new RSSFeedView();
+    }
 
     @Bean
     public ViewResolver internalResourceViewResolver() {

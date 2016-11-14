@@ -23,7 +23,7 @@ public class FeedController {
         atomTournamentList.add(TournamentContent.generateContent("ATP", new Date(), "US Open", "www.usopen.org"));
         model.addAttribute("feedContent", atomTournamentList);
 
-        return "atomfeedtemplate";
+        return "atomFeedViewTemplate";
     }
 
     @RequestMapping("/rssfeed")
@@ -35,7 +35,7 @@ public class FeedController {
         tournamentList.add(TournamentContent.generateContent("FIFA", new Date(), "Confederations Cup", "www.fifa.com/confederationscup/"));
         model.addAttribute("feedContent", tournamentList);
 
-        return "rssfeedtemplate";
+        return "rssFeedViewTemplate";
     }
 
     @RequestMapping("/jsontournament")
