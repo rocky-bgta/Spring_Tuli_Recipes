@@ -58,12 +58,13 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
     public MemberServiceInterface memberService(){
         return  new MemberServiceImple();
     }
+    //====================END XML Restful Service===============================
 
     @Bean
     public ViewResolver viewResolver(){
         return new BeanNameViewResolver();
     }
-    //====================END XML Restful Service===============================
+
 
     @Bean
     public AtomFeedView atomFeedViewTemplate(){
