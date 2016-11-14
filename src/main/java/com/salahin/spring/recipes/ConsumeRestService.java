@@ -1,6 +1,5 @@
 package com.salahin.spring.recipes;
 
-import com.salahin.spring.recipes.domain.Member;
 import com.salahin.spring.recipes.domain.Members;
 import org.springframework.web.client.RestTemplate;
 
