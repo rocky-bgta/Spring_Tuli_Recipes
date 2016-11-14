@@ -9,9 +9,13 @@ import com.salahin.spring.recipes.web.view.RSSFeedView;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.social.connect.ConnectionFactoryLocator;
+import org.springframework.social.connect.ConnectionRepository;
+import org.springframework.social.connect.web.ConnectController;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.BeanNameViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -75,6 +79,16 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
     public RSSFeedView rssFeedViewTemplate(){
         return new RSSFeedView();
     }
+
+    //Spring Social Integration=======================================================
+    @Bean
+    public ConnectController connectController(
+            ConnectionFactoryLocator connectionFactoryLocator,
+            ConnectionRepository connectionRepository) {
+        ConnectController connectController = new ConnectController(connectionFactoryLocator, connectionRepository);
+        return connectController;
+    }
+    //Spring Social Integration=======================================================
 
     @Bean
     public ViewResolver internalResourceViewResolver() {
