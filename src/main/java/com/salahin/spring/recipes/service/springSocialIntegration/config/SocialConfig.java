@@ -9,6 +9,8 @@ import org.springframework.social.config.annotation.EnableSocial;
 import org.springframework.social.config.annotation.SocialConfigurerAdapter;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionRepository;
+import org.springframework.social.facebook.api.Facebook;
+import org.springframework.social.facebook.connect.FacebookConnectionFactory;
 import org.springframework.social.twitter.api.Twitter;
 import org.springframework.social.twitter.connect.TwitterConnectionFactory;
 
@@ -40,6 +42,25 @@ public class SocialConfig extends SocialConfigurerAdapter {
         @Scope(value = "request", proxyMode = ScopedProxyMode.INTERFACES)
         public Twitter twitterTemplate(ConnectionRepository connectionRepository) {
             Connection<Twitter> connection = connectionRepository.findPrimaryConnection(Twitter.class);
+            return connection != null ? connection.getApi() : null;
+        }
+    }
+
+    @Configuration
+    public static class FacebookConfiguration extends SocialConfigurerAdapter {
+
+        @Override
+        public void addConnectionFactories(ConnectionFactoryConfigurer connectionFactoryConfigurer, Environment env) {
+            connectionFactoryConfigurer.addConnectionFactory(
+                    new FacebookConnectionFactory(
+                            env.getRequiredProperty("facebook.appId"),
+                            env.getRequiredProperty("facebook.appSecret")));
+        }
+
+        @Bean
+        @Scope(value = "request", proxyMode = ScopedProxyMode.INTERFACES)
+        public Facebook facebookTemplate(ConnectionRepository connectionRepository) {
+            Connection<Facebook> connection = connectionRepository.findPrimaryConnection(Facebook.class);
             return connection != null ? connection.getApi() : null;
         }
     }
