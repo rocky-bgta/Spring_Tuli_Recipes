@@ -13,12 +13,8 @@ import java.util.Date;
 @RequestMapping(value = {"/welcome", "/"}, method = RequestMethod.GET)
 public class  WelcomeController {
 
-    HomeMadeServiceInterface homeMadeServiceInterface;
-
     @Autowired
-    public WelcomeController(HomeMadeServiceInterface homeMadeServiceInterface){
-        this.homeMadeServiceInterface = homeMadeServiceInterface;
-    }
+    private HomeMadeServiceInterface homeMadeServiceInterface;
 
     @RequestMapping(method = RequestMethod.GET)
     public String welcome(Model model) {

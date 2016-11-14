@@ -19,12 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class MemberJsonController {
 
     @Autowired
-    private final MemberServiceInterface memberServiceInterface;
-
-    public MemberJsonController(MemberServiceInterface memberServiceInterface) {
-        this.memberServiceInterface = memberServiceInterface;
-    }
-
+    private MemberServiceInterface memberServiceInterface;
 
     @RequestMapping(value = {"/members*"}, produces= MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody

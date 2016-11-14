@@ -1,6 +1,7 @@
 package com.salahin.spring.recipes.service.recipeinterface;
 
 import com.salahin.spring.recipes.domain.Member;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.util.Collection;
 

@@ -23,14 +23,10 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class MemberXmlController {
 
     @Autowired
-    private final MemberServiceInterface memberServiceInterface;
+    private MemberServiceInterface memberServiceInterface;
 
     @Autowired
     private Environment environment;
-
-    public MemberXmlController(MemberServiceInterface memberServiceInterface) {
-        this.memberServiceInterface = memberServiceInterface;
-    }
 
     @RequestMapping("/member/{memberId}")
     @ResponseBody

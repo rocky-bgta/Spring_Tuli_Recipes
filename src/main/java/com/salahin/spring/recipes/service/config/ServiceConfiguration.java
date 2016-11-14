@@ -23,7 +23,7 @@ public class ServiceConfiguration {
     }
 
     @Bean
-    public HomeMadeServiceInterface reservationService() {
+    public HomeMadeServiceInterface homeMadeServiceInterface() {
         return new HomeMadeServiceImple();
     }
 

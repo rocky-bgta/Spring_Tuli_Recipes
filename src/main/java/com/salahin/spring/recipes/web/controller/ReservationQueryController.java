@@ -7,7 +7,5 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/reservationQuery")
-public class ReservationQueryContorller {
-    
-
+public class ReservationQueryController {
 }

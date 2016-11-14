@@ -18,10 +18,10 @@ import java.util.List;
 @Controller
 public class FeedController {
     @Autowired
-    RSSFeedView rssFeedView;
+    private RSSFeedView rssFeedView;
 
     @Autowired
-    AtomFeedView atomFeedView;
+    private AtomFeedView atomFeedView;
 
     @RequestMapping("/atomfeed")
     public AtomFeedView getAtomFeed(Model model) {
