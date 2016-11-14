@@ -1,5 +1,6 @@
 package com.salahin.spring.recipes.service.config;
 
+import com.salahin.spring.recipes.service.presistanceDataSource.PersistenceDataSourceProvider;
 import com.salahin.spring.recipes.service.recipeimplementation.HomeMadeServiceImple;
 import com.salahin.spring.recipes.service.recipeimplementation.MemberServiceImple;
 import com.salahin.spring.recipes.service.recipeinterface.HomeMadeServiceInterface;
@@ -15,6 +16,11 @@ import org.springframework.context.annotation.Import;
 @Import({SocialConfig.class})
 @ComponentScan("com.salahin.spring.recipes.service")
 public class ServiceConfiguration {
+
+    @Bean
+    public PersistenceDataSourceProvider persistenceDataSourceProvider(){
+        return new PersistenceDataSourceProvider();
+    }
 
     @Bean
     public HomeMadeServiceInterface reservationService() {
