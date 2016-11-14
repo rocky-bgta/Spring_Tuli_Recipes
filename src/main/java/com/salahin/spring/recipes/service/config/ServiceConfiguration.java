@@ -17,12 +17,12 @@ import org.springframework.context.annotation.Import;
 @ComponentScan("com.salahin.spring.recipes.service")
 public class ServiceConfiguration {
 
-    @Bean
+    /*@Bean
     public PersistenceDataSourceProvider persistenceDataSourceProvider(){
         return new PersistenceDataSourceProvider();
     }
-
-    @Bean
+*/
+   /* @Bean
     public HomeMadeServiceInterface homeMadeServiceInterface() {
         return new HomeMadeServiceImple();
     }
@@ -30,5 +30,5 @@ public class ServiceConfiguration {
     @Bean
     MemberServiceInterface memberServiceInterface(){
         return new MemberServiceImple();
-    }
+    }*/
 }

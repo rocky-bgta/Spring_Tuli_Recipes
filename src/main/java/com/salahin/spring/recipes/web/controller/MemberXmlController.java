@@ -2,6 +2,7 @@ package com.salahin.spring.recipes.web.controller;
 
 import com.salahin.spring.recipes.domain.Member;
 import com.salahin.spring.recipes.domain.Members;
+import com.salahin.spring.recipes.service.recipeimplementation.MemberServiceImple;
 import com.salahin.spring.recipes.service.recipeinterface.MemberServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
@@ -23,7 +24,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class MemberXmlController {
 
     @Autowired
-    private MemberServiceInterface memberServiceInterface;
+    private MemberServiceImple memberServiceImple;
 
     @Autowired
     private Environment environment;
@@ -31,7 +32,7 @@ public class MemberXmlController {
     @RequestMapping("/member/{memberId}")
     @ResponseBody
     public ResponseEntity<Member> getMember(@PathVariable("memberId") int memberId){
-        Member member = memberServiceInterface.find(memberId);
+        Member member = memberServiceImple.find(memberId);
         if(member!=null) {
             return new ResponseEntity<Member>(member, HttpStatus.OK);
         }
@@ -44,7 +45,7 @@ public class MemberXmlController {
         // example of how read property file through environment variable
         String property = environment.getProperty("hello");
         Members members = new Members();
-        members.addMembers(memberServiceInterface.findAll());
+        members.addMembers(memberServiceImple.findAll());
         return new ResponseEntity<Members>(members, HttpStatus.OK);
     }
 }
