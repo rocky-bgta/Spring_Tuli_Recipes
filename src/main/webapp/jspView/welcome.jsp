@@ -18,5 +18,8 @@ Wecome Message from Tuli: ${WelcomeMessage}.
 
     <h3>Connections</h3>
     Click <a href="<spring:url value='/connect'/>">here</a> to see your Social Network Connections.
+<br>
+<br>
+<h4><a href="/jspView/login.jsp">Login to website</a></h4>
 </body>
 </html>

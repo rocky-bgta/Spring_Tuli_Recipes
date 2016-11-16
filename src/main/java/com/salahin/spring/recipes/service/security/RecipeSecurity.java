@@ -16,17 +16,23 @@ public class RecipeSecurity extends WebSecurityConfigurerAdapter  {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.
-                authorizeRequests()
-                .antMatchers("/", "/welcome","/members").permitAll()
-                .antMatchers("/atomfeed*").hasAnyRole("USER")
+        http.csrf().disable();
+                http.authorizeRequests()
+                    .antMatchers("/", "/welcome","/members").permitAll()
+                    .antMatchers("/atomfeed*").hasRole("USER")
                 .and()
-                .formLogin();
+                    .formLogin()
+                    .loginPage("/jspView/login.jsp")
+                    .loginProcessingUrl("/spring_security_check")
+                    .defaultSuccessUrl("/")
+                    .failureUrl("/jspView/login.jsp?error=true")
+                .and()
+                    .rememberMe();
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("admin").password("admin").authorities("ROLE_USER");
+                .withUser("admin").password("a").authorities("ROLE_USER");
     }
 }
