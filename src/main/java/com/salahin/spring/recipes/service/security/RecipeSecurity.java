@@ -17,6 +17,9 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 public class RecipeSecurity extends WebSecurityConfigurerAdapter  {
 
+    /**
+     * @mySql database connection.
+     */
     @Autowired
     private PersistenceDataSourceProvider persistenceDataSourceProvider;
 
