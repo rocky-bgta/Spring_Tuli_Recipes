@@ -2,6 +2,7 @@ package com.salahin.spring.recipes.web.controller;
 
 import com.salahin.spring.recipes.domain.Members;
 import com.salahin.spring.recipes.service.recipeimplementation.MemberServiceImple;
+import com.salahin.spring.recipes.service.recipeinterface.MemberServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class MemberJsonController {
 
     @Autowired
-    private MemberServiceImple memberServiceImple;
+    private MemberServiceInterface memberServiceImple;
 
     @RequestMapping(value = {"/members*"}, produces= MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody

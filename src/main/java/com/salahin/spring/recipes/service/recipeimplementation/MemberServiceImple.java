@@ -6,7 +6,7 @@ import com.salahin.spring.recipes.service.recipeinterface.MemberServiceInterface
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.HashMap;
@@ -15,7 +15,7 @@ import java.util.Map;
 /**
  * Created by marten on 16-06-14.
  */
-@Component
+@Service
 @PropertySource({"classpath:/application.properties","classpath:/message.properties"})
 public class MemberServiceImple implements MemberServiceInterface {
 
