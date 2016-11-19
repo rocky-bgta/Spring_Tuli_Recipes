@@ -1,5 +1,6 @@
 package com.salahin.spring.recipes.service.config;
 
+import com.salahin.spring.recipes.service.cacheProvider.EhCacheProvider;
 import com.salahin.spring.recipes.service.presistanceDataSource.PersistenceDataSourceProvider;
 import com.salahin.spring.recipes.service.recipeimplementation.HomeMadeServiceImple;
 import com.salahin.spring.recipes.service.recipeimplementation.MemberServiceImple;
@@ -13,7 +14,7 @@ import org.springframework.context.annotation.Import;
 
 
 @Configuration
-@Import({SocialConfig.class})
+@Import({SocialConfig.class, EhCacheProvider.class})
 @ComponentScan("com.salahin.spring.recipes.service")
 public class ServiceConfiguration {
 
