@@ -14,12 +14,10 @@ import org.springframework.social.connect.ConnectionFactoryLocator;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.connect.web.ConnectController;
 import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.BeanNameViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 
 /**
  * Configuration class to setup Spring MVC.
@@ -87,8 +85,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
     public ConnectController connectController(
             ConnectionFactoryLocator connectionFactoryLocator,
             ConnectionRepository connectionRepository) {
-        ConnectController connectController = new ConnectController(connectionFactoryLocator, connectionRepository);
-        return connectController;
+        return  new ConnectController(connectionFactoryLocator, connectionRepository);
     }
     //Spring Social Integration=======================================================
 
@@ -96,7 +93,16 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
     public ViewResolver internalResourceViewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setPrefix("/jspView/");
+        viewResolver.setViewClass(JstlView.class);
         viewResolver.setSuffix(".jsp");
         return viewResolver;
+    }
+
+    /*
+     * Configure ResourceHandlers to serve static resources like CSS/ Javascript etc...
+     */
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/public/**").addResourceLocations("/public/");
     }
 }
