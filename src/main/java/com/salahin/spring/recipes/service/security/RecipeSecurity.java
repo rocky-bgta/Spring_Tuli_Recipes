@@ -37,7 +37,9 @@ public class RecipeSecurity extends WebSecurityConfigurerAdapter  {
                 .and()
                     .formLogin()
                     .loginPage("/jspView/login.jsp")
-                    .loginProcessingUrl("/spring_security_check")
+                    .usernameParameter("ssoId")
+                    .passwordParameter("password")
+                    //.loginProcessingUrl("/spring_security_check")
                     .defaultSuccessUrl("/")
                     .failureUrl("/jspView/login.jsp?error=true")
                 .and()
@@ -52,8 +54,11 @@ public class RecipeSecurity extends WebSecurityConfigurerAdapter  {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-      /* auth.inMemoryAuthentication()
-                .withUser("admin").password("a").authorities("ROLE_USER");*/
+      /* auth.inMemoryAuthentication().withUser("admin").password("a").authorities("ROLE_USER");*/
+
+       /* auth.inMemoryAuthentication().withUser("bill").password("abc123").roles("USER");
+        auth.inMemoryAuthentication().withUser("admin").password("root123").roles("ADMIN");
+        auth.inMemoryAuthentication().withUser("dba").password("root123").roles("ADMIN","DBA");*/
 
         auth.jdbcAuthentication()
                 .dataSource(persistenceDataSourceProvider.mySqlDataSource())
