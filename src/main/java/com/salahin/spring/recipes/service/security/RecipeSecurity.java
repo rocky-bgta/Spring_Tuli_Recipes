@@ -31,6 +31,7 @@ public class RecipeSecurity extends WebSecurityConfigurerAdapter  {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
+        http.authorizeRequests().antMatchers("/resources/**").permitAll().anyRequest().permitAll();
                 http.authorizeRequests()
                     .antMatchers("/", "/welcome","/members").permitAll()
                     .antMatchers("/atomfeed*").hasRole("USER")

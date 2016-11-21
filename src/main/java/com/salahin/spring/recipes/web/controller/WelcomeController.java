@@ -15,17 +15,23 @@ public class  WelcomeController {
     @Autowired
     private HomeMadeServiceInterface homeMadeServiceInterface;
 
-    @RequestMapping(value = {"/welcome"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/tulirecipes"}, method = RequestMethod.GET)
     public String welcome(Model model) {
         Date today = new Date();
         model.addAttribute("WelcomeMessage", homeMadeServiceInterface.welcomeMessage);
         model.addAttribute("today", today);
-        return "/jspView/welcome.jsp";
+        return "welcome";
     }
 
-    @RequestMapping(value = {"/start","/"}, method = RequestMethod.GET)
+
+    /*@RequestMapping(value = "/index.html")
+    public class LoginController{
+
+    }*/
+
+   /* @RequestMapping(value = {"/start","/"}, method = RequestMethod.GET)
     public String showHomePage() {
         return "/static/index.html";
-    }
+    }*/
 
 }

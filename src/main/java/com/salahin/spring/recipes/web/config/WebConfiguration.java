@@ -95,8 +95,8 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
     @Bean
     public ViewResolver internalResourceViewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix("");
-        viewResolver.setSuffix("");
+        viewResolver.setPrefix("/jspView/");
+        viewResolver.setSuffix(".jsp");
         return viewResolver;
     }
 
@@ -105,7 +105,18 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
      */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**").addResourceLocations("/static/");
+        //registry.addResourceHandler("/resources/**").addResourceLocations("/resources/static/");
+        ResourceHandlerRegistration resourceRegistration = registry
+                .addResourceHandler("resources/**");
+        resourceRegistration.addResourceLocations("/resources/**");
+        registry.addResourceHandler("/css/**").addResourceLocations("/css/**");
+        registry.addResourceHandler("/img/**").addResourceLocations("/img/**");
+        registry.addResourceHandler("/js/**").addResourceLocations("/js/**");
+        registry.addResourceHandler("/resources/**").addResourceLocations("classpath:/resources/");
+    }
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("forward:/index.html");
     }
 
 }
