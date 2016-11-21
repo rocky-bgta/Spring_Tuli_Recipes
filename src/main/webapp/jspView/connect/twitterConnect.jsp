@@ -6,7 +6,7 @@
 <body>
 <h3>Connect to Twitter</h3>
 
-<form action="<spring:url value='/connect/twitter'/>" method="POST">
+<form action="<spring:url value='tulirecipes/connect/twitter'/>" method="POST">
     <div class="formInfo">
         <p>You aren't connected to Twitter yet. Click the button to connect this application with your Twitter account.</p>
     </div>

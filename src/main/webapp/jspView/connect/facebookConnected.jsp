@@ -8,7 +8,7 @@
 
 <p>
     You are now connected to your Facebook account.
-    Click <a href="<spring:url value='/user/facebook/profile'/>">here</a> to see your Facebook Profile.
+    Click <a href="<spring:url value='tulirecipes/user/facebook/profile'/>">here</a> to see your Facebook Profile.
 </p>
 </body>
 </html>

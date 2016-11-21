@@ -14,7 +14,7 @@
     </c:if>
     <c:if test="${connectionMap[provider] == null}">
         <div>
-            You are not yet connected to ${provider}. Click <a href="<spring:url value="/connect/${provider}"/>">here</a> to connect to ${provider}.
+            You are not yet connected to ${provider}. Click <a href="<spring:url value="tulirecipes/connect/${provider}"/>">here</a> to connect to ${provider}.
         </div>
     </c:if>
 </c:forEach>

@@ -8,7 +8,7 @@
 
 <p>
     You are now connected to your Twitter account.
-    Click <a href="<spring:url value='/connect'/>">here</a> to see your Connection Status.
+    Click <a href="<spring:url value='tulirecipes/connect'/>">here</a> to see your Connection Status.
 </p>
 </body>
 </html>
