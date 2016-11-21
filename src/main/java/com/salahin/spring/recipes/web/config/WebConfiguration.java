@@ -6,6 +6,7 @@ import com.salahin.spring.recipes.service.recipeinterface.MemberServiceInterface
 import com.salahin.spring.recipes.web.Interceptor;
 import com.salahin.spring.recipes.web.view.AtomFeedView;
 import com.salahin.spring.recipes.web.view.RSSFeedView;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -13,13 +14,14 @@ import org.springframework.social.connect.ConnectionFactoryLocator;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.connect.web.ConnectController;
 import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.servlet.handler.SimpleUrlHandlerMapping;
+import org.springframework.web.servlet.mvc.UrlFilenameViewController;
 import org.springframework.web.servlet.view.BeanNameViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+
+import java.util.Properties;
 
 /**
  * Configuration class to setup Spring MVC.
@@ -93,9 +95,8 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
     @Bean
     public ViewResolver internalResourceViewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setViewClass(JstlView.class);
-        viewResolver.setPrefix("/jspView/");
-        viewResolver.setSuffix(".jsp");
+        viewResolver.setPrefix("");
+        viewResolver.setSuffix("");
         return viewResolver;
     }
 
@@ -104,6 +105,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
      */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/public/**").addResourceLocations("/public/");
+        registry.addResourceHandler("/static/**").addResourceLocations("/static/");
     }
+
 }

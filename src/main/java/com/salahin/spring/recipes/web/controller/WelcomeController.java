@@ -10,18 +10,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.Date;
 
 @Controller
-@RequestMapping(value = {"/welcome", "/"}, method = RequestMethod.GET)
 public class  WelcomeController {
 
     @Autowired
     private HomeMadeServiceInterface homeMadeServiceInterface;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = {"/welcome"}, method = RequestMethod.GET)
     public String welcome(Model model) {
         Date today = new Date();
         model.addAttribute("WelcomeMessage", homeMadeServiceInterface.welcomeMessage);
         model.addAttribute("today", today);
-        return "welcome";
+        return "/jspView/welcome.jsp";
+    }
+
+    @RequestMapping(value = {"/start","/"}, method = RequestMethod.GET)
+    public String showHomePage() {
+        return "/static/index.html";
     }
 
 }
