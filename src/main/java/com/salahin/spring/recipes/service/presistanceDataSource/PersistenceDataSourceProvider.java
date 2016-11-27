@@ -12,20 +12,18 @@ import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
-import org.springframework.stereotype.Component;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.transaction.annotation.TransactionManagementConfigurer;
 
-import javax.inject.Inject;
-import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 /**
  * Created by Tuli on 11/14/2016.
  */
 @Configuration
-@EnableJpaRepositories(entityManagerFactoryRef = "entityManagerFactory", value = "com.salahin.spring.recipes.service.recipeinterface")
+@EnableJpaRepositories(
+        entityManagerFactoryRef = "entityManagerFactory",
+        value = "com.salahin.spring.recipes.service.recipeinterface")
 @EnableTransactionManagement
 @PropertySource("classpath:/datasource.properties")
 public class PersistenceDataSourceProvider {
@@ -48,20 +46,11 @@ public class PersistenceDataSourceProvider {
         HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
         adapter.setDatabase(Database.MYSQL);
         adapter.setShowSql(true);
-        adapter.setGenerateDdl(false);
+        adapter.setGenerateDdl(true);
         adapter.setDatabasePlatform("org.hibernate.dialect.MySQLDialect");
         return adapter;
     }
 
-    /*@Bean
-    public LocalContainerEntityManagerFactoryBean emf(DataSource dataSource, JpaVendorAdapter jpaVendorAdapter) {
-        LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
-        emf.setDataSource(dataSource);
-        emf.setPersistenceUnitName("tuli_recipe");
-        emf.setJpaVendorAdapter(jpaVendorAdapter);
-        emf.setPackagesToScan("com.salahin.spring.recipes.domain");
-        return emf;
-    }*/
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
@@ -73,25 +62,6 @@ public class PersistenceDataSourceProvider {
         return emf;
     }
 
-    /*@Configuration
-    @EnableTransactionManagement
-    public static class TransactionConfig implements TransactionManagementConfigurer {
-        @Inject
-        private EntityManagerFactory emf;
-
-       *//* public PlatformTransactionManager annotationDrivenTransactionManager() {
-            JpaTransactionManager transactionManager = new JpaTransactionManager();
-            transactionManager.setEntityManagerFactory(emf);
-            return transactionManager;
-        }*//*
-
-        @Bean
-        public PlatformTransactionManager annotationDrivenTransactionManager() {
-            JpaTransactionManager transactionManager = new JpaTransactionManager();
-            transactionManager.setEntityManagerFactory(emf);
-            return transactionManager;
-        }
-    }*/
 
     @Bean
     public PlatformTransactionManager transactionManager() {
