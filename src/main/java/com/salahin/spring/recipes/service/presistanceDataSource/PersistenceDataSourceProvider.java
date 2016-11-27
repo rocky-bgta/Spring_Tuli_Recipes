@@ -33,7 +33,6 @@ public class PersistenceDataSourceProvider {
 
     public DataSource mySqlDataSource() {
         BasicDataSource dataSource = new BasicDataSource();
-        String test = environment.getProperty("jdbc.driverClassName");
         dataSource.setDriverClassName(environment.getProperty("jdbc.driverClassName"));
         dataSource.setUrl(environment.getProperty("jdbc.url"));
         dataSource.setUsername(environment.getProperty("jdbc.username"));
