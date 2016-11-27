@@ -4,7 +4,6 @@ import com.salahin.spring.recipes.service.config.ServiceConfiguration;
 import com.salahin.spring.recipes.service.security.RecipeSecurity;
 import com.salahin.spring.recipes.web.config.WebConfiguration;
 import org.springframework.core.annotation.Order;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
