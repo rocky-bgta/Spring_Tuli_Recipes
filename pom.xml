@@ -9,6 +9,7 @@
   <version>1.0-SNAPSHOT</version>
   <name>tuli_recipes Maven Webapp</name>
   <url>http://maven.apache.org</url>
+
   <dependencies>
       <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
       <dependency>
@@ -35,12 +36,6 @@
           <version>1.2</version>
       </dependency>
 
-      <!-- https://mvnrepository.com/artifact/org.springframework/spring-oxm XML-->
-      <dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-oxm</artifactId>
-          <version>3.0.0.RELEASE</version>
-      </dependency>
 
       <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind JSON-->
       <dependency>
@@ -102,12 +97,7 @@
       </dependency>
 
 
-      <!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
-      <dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-tx</artifactId>
-          <version>4.3.2.RELEASE</version>
-      </dependency>
+
       <!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
       <dependency>
           <groupId>commons-dbcp</groupId>
@@ -134,12 +124,6 @@
           <version>4.1.3.RELEASE</version>
       </dependency>
 
-      <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
-     <!-- <dependency>
-          <groupId>org.springframework.security</groupId>
-          <artifactId>spring-security-taglibs</artifactId>
-          <version>4.1.3.RELEASE</version>
-      </dependency>-->
 
       <!-- https://mvnrepository.com/artifact/net.sf.ehcache/ehcache -->
       <dependency>
@@ -152,7 +136,51 @@
       <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-context-support</artifactId>
-          <version>4.1.0.RELEASE</version>
+          <version>4.0.7.RELEASE</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-tx</artifactId>
+          <version>4.0.7.RELEASE</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-orm</artifactId>
+          <version>4.0.7.RELEASE</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-aop</artifactId>
+          <version>4.0.7.RELEASE</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-jdbc</artifactId>
+          <version>4.0.7.RELEASE</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-beans</artifactId>
+          <version>4.0.7.RELEASE</version>
+      </dependency>
+
+
+      <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+      <dependency>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-core</artifactId>
+          <version>4.0.1.Final</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+      <dependency>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-entitymanager</artifactId>
+          <version>4.0.1.Final</version>
       </dependency>
 
 
