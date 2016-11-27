@@ -1,7 +1,9 @@
 package com.salahin.spring.recipes.service.recipeimplementation;
 
 
+import com.salahin.spring.recipes.domain.Course;
 import com.salahin.spring.recipes.domain.Member;
+import com.salahin.spring.recipes.service.recipeinterface.CourseRepository;
 import com.salahin.spring.recipes.service.recipeinterface.MemberServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
@@ -9,6 +11,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,6 +26,9 @@ public class MemberServiceImple implements MemberServiceInterface {
 
     @Autowired
     Environment environment;
+
+    @Autowired
+    CourseRepository courseDao;
 
     @PostConstruct
     public void init() {
@@ -44,6 +50,13 @@ public class MemberServiceImple implements MemberServiceInterface {
         members.put(1, m1);
         members.put(2, m2);
         members.put(3, m3);
+
+        Course course = new Course();
+        course.setTitle("Core Spring");
+        course.setBeginDate(new GregorianCalendar(2007, 8, 1).getTime());
+        course.setEndDate(new GregorianCalendar(2007, 9, 1).getTime());
+        course.setFee(1000);
+        courseDao.save(course);
     }
 
 
