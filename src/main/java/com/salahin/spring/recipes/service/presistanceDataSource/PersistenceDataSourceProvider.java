@@ -3,6 +3,7 @@ package com.salahin.spring.recipes.service.presistanceDataSource;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
@@ -12,7 +13,7 @@ import javax.sql.DataSource;
 /**
  * Created by Tuli on 11/14/2016.
  */
-@Component
+@Configuration
 @PropertySource("classpath:/datasource.properties")
 public class PersistenceDataSourceProvider {
 

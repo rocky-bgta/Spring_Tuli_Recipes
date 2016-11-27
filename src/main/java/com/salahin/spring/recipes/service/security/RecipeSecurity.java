@@ -55,7 +55,7 @@ public class RecipeSecurity extends WebSecurityConfigurerAdapter  {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-      /* auth.inMemoryAuthentication().withUser("admin").password("a").authorities("ROLE_USER");*/
+       auth.inMemoryAuthentication().withUser("admin").password("a").authorities("ROLE_USER");
 
        /* auth.inMemoryAuthentication().withUser("bill").password("abc123").roles("USER");
         auth.inMemoryAuthentication().withUser("admin").password("root123").roles("ADMIN");
