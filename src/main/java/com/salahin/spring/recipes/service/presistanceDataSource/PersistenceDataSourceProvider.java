@@ -23,7 +23,7 @@ import javax.sql.DataSource;
 @Configuration
 @EnableJpaRepositories(
         entityManagerFactoryRef = "entityManagerFactory",
-        value = "com.salahin.spring.recipes.service.recipeinterface")
+        value = "com.salahin.spring.recipes.service.recipeinterface") // Scan for @Repository annotation interface
 @EnableTransactionManagement
 @PropertySource("classpath:/datasource.properties")
 public class PersistenceDataSourceProvider {
@@ -56,7 +56,7 @@ public class PersistenceDataSourceProvider {
         LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
         emf.setDataSource(mySqlDataSource());
         emf.setPersistenceUnitName("tuli_recipe");
-        emf.setPackagesToScan("com.salahin.spring.recipes.domain");
+        emf.setPackagesToScan("com.salahin.spring.recipes.domain"); //scan Entities
         emf.setJpaVendorAdapter(jpaVendorAdapter());
         return emf;
     }
