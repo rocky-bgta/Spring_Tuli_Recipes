@@ -133,7 +133,10 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
 
     @Scheduled(fixedRate = 5000)
     public void reportCurrentTime() {
+        log.debug("Debug Test");
         log.info("The time is now {}", dateFormat.format(new Date()));
+        log.error("Did it again!");
+        log.trace("Entering application.");
     }
 
 }
