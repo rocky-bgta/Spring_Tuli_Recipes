@@ -39,7 +39,7 @@ import java.util.Properties;
 @Configuration
 @EnableWebMvc
 @EnableScheduling
-@ComponentScan("com.salahin.spring.recipes.web")
+@ComponentScan({"com.salahin.spring.recipes.web"})
 public class WebConfiguration extends WebMvcConfigurerAdapter {
 
     private static final Logger log = LoggerFactory.getLogger(WebConfiguration.class);
