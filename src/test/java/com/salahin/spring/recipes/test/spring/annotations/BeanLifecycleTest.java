@@ -1,14 +1,13 @@
 package com.salahin.spring.recipes.test.spring.annotations;
 
 
-import com.salahin.spring.recipes.beanLifeCycle.CompleteLivingBean;
 import com.salahin.spring.recipes.beanLifeCycle.BeanLifeCycleConfiguration;
+import com.salahin.spring.recipes.beanLifeCycle.CompleteLivingBean;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
